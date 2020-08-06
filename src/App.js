@@ -1,41 +1,36 @@
 import React from 'react';
-import styled from 'styled-components'
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import styled, { ThemeProvider } from 'styled-components';
 
 function App() {
 
-  let Header = styled.header`
-    background-color: #ccc;
-    height: 20vh;
-    text-align: center;
-  `
+const AppContainer = styled.div`
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: 'header header' 'main main' 'footer footer';
 
-  let Main = styled.main`
-     background-color: darkblue;
-     min-height: 70vh;
-  `  // tagged template literals
-
-  let Footer = styled.footer`
-    background-color: #ccc;
-    text-align: center;
-    &:hover {
-      color: red;
+    @media screen and (min-width: 768px) {
+      grid-template-areas: 'header header' 'main footer' 'main footer';
     }
-  `
+  `;
 
   return (
-    <div className="App">
-      <Header>
-        <h1>Styled Components</h1>
-      </Header>
-      <Main>
-        <button>Hello</button>
-      </Main>
-      <Footer>
-        <span>&copy; Copright</span>
-      </Footer>
-    </div>
+    <ThemeProvider>
+      <AppContainer>
+        <Header>
+          <h1>Styled Heading</h1>
+        </Header>
+        <Main>
+          <button>Hello</button>
+        </Main>
+        <Footer>
+          <span>&copy; Copright</span>
+        </Footer>
+      </AppContainer>
+    </ThemeProvider>
   );
-
 }
 
 export default App;
