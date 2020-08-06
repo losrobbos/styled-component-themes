@@ -24,6 +24,11 @@ function App() {
       color: ${(props) => (props.theme.mode == 'light' ? 'black' : 'white')};    
       background-color: ${(props) => (props.theme.mode == 'light' ? 'orange' : 'black')};
     }
+
+    /* make boundaries of grid areas visible */
+    header, main, footer { 
+      border: 1px solid ${(props) => (props.theme.mode == 'light' ? 'black' : 'white')};; 
+    }
   `;
 
   let [ theme, setTheme ] = useState('dark')
