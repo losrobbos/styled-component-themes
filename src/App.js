@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
 
 function App() {
+
+  let Header = styled.header`
+    background-color: #ccc;
+    height: 20vh;
+    text-align: center;
+  `
+
+  let Main = styled.main`
+     background-color: darkblue;
+     min-height: 70vh;
+  `  // tagged template literals
+
+  let Footer = styled.footer`
+    background-color: #ccc;
+    text-align: center;
+    &:hover {
+      color: red;
+    }
+  `
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>
+        <h1>Styled Components</h1>
+      </Header>
+      <Main>
+        <button>Hello</button>
+      </Main>
+      <Footer>
+        <span>&copy; Copright</span>
+      </Footer>
     </div>
   );
+
 }
 
 export default App;
