@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
+import Aside from './components/Aside';
 import Footer from './components/Footer';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
@@ -11,10 +12,10 @@ function App() {
     display: grid;
     min-height: 100vh;
     grid-auto-rows: 1fr;
-    grid-template-areas: 'header header' 'main main' 'main main' 'main main' 'footer footer';
+    grid-template-areas: 'header' 'main' 'main' 'aside' 'footer';
 
     @media screen and (min-width: 768px) {
-      grid-template-areas: 'header header' 'main footer' 'main footer' 'main footer' 'main footer';
+      grid-template-areas: 'header header header' 'main main aside' 'main main aside' 'main main aside' 'footer footer footer';
     }
   `;
 
@@ -26,7 +27,7 @@ function App() {
     }
 
     /* make boundaries of grid areas visible */
-    header, main, footer { 
+    header, main, aside, footer { 
       border: 1px solid ${(props) => (props.theme.mode == 'light' ? 'black' : 'white')};; 
     }
   `;
@@ -39,11 +40,12 @@ function App() {
       <GlobalStyle />
       <Layout>
         <Header>
-          <h1>Styled Heading</h1>
+          <h1>Styled Components</h1>
         </Header>
         <Main>
-          <button onClick={toggleTheme}>Hello</button>
+          <button onClick={toggleTheme}>Switch Theme</button>
         </Main>
+        <Aside>Aside</Aside>
         <Footer>
           <span>&copy; Copright</span>
         </Footer>
